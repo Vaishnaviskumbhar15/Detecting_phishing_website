@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} Web Malicious {% endblock %}</title>
+    <link rel="stylesheet"  href="{{ url_for('static',filename='assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet"  href="{{ url_for('static',filename='assets/css/style.css')}}">
+    <script src="{{ url_for('static',filename='assets/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/api.js')}}"></script>
+    <script>$SCRIPT_ROOT = {{ request.script_root|tojson }};</script>
+    
+  </head>
+  <body style="" class=" ">
+    <div class="content">
+      <div class="overlay"></div>
+      <div class="spanner">
+        <div class="loader"></div>
+        <p>Scanning website, please be patient.</p>
+      </div>
+      {% block content %} {% endblock %}
+    </div>
+  </body>
+</html>

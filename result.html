@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!--     -->
+ 
+ 
+<div class="container">
+    <div class="column">
+        <div class="col-md-12">
+            <div class=" ">
+                 
+                 <div class="h1 mt-5 text-center"> Previous Scan Results</div>
+
+                 <div class="d-flex justify-content-center">
+                     <nav class="nav mx-auto">
+                        <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
+                        <a class="nav-link" href="{{ url_for('result_all') }}">Previous Results</a>
+                    </nav>
+                 </div>
+                 <table class="table table-striped mt-5 text-left">
+                     <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Original domain</th>
+                          <th scope="col">Fake domain</th>
+                          <th scope="col">Content similarity</th>
+                          <th scope="col">Domain similarity</th>
+                          <!-- <th scope="col">Image similarity</th> -->
+                          <th scope="col">Verdict</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+ 
+                        {% for scan in previous_scan_results %}
+                        <tr>
+ 
+
+                            <td>{{ scan.id }}</td>
+                            <td style="text-truncate">{{ scan.original_domain }}</td>
+                            <td style="text-truncate">{{ scan.fake_domain }}</td>
+                            <td>{{ scan.content_similarity_score }} %</td>
+                            <td>{{ scan.domain_similarity_score }} %</td>
+                            <!-- <td>{{ scan.img_similarity_score }} %</td> -->
+                            <td>{{ scan.verdict }}</td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

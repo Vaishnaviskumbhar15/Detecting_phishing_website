@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+    
+    
+    <div class="container">
+        <div class="column"> 
+            <div class="col-md-12">
+
+                <div class="d-flex flex-column justify-content-md-center align-items-center vh-100 ">
+                    <div class="h1"> Add Safe sites</div>
+                    <nav class="nav">
+                        <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
+                        <a class="nav-link" href="{{ url_for('result_all') }}">Previous Results</a>
+                    </nav>
+
+                    <div class="mt-5 col-md-8">
+  
+                        <div class="alert alert-primary alert-dismissible fade show" id="info-alert" role="alert" style="display: none;">
+                          <span id="safe_message"></span>
+                        </div>
+                        <div class="alert alert-warning alert-dismissible fade show" id="alert" role="alert" style="display: none;">
+                          Please enter a website for scanning...  
+                        </div>
+                        <div class="alert alert-danger alert-dismissible fade show" id="error_alert" role="alert" style="display: none;">
+                          Something went wrong! Please try again...
+                          
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control  border" id="website" placeholder="Website" aria-label="Website" aria-describedby="button-addon2">
+                            <button class="btn border btn-primary" type="button" id="safe-add-button">Check?</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+ 
+
+    </div>
+{% endblock %}
